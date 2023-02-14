@@ -6,6 +6,8 @@ public class Weapon : MonoBehaviour
     public float force;
     public float maxDistanceToEnemy;
 
+    public RaycastHit2D hitEnemy;
+
     private float lifeTime;
 
     public float speed;
@@ -26,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-
+        MoveToEnemy();
     }
 
     void FixedUpdate()
@@ -39,7 +41,9 @@ public class Weapon : MonoBehaviour
         Vector2 mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 directionToMouse = (new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0) - transform.position).normalized;
 
-       // Physics2D.Raycast(transform.position, directionToMouse, maxDistanceToEnemy, layerMask);
-        //Vector3.MoveTowards(transform.position, )
+        int enemyLayerMask = LayerMask.GetMask("Enemy");
+
+        hitEnemy = Physics2D.Raycast(transform.position, directionToMouse, maxDistanceToEnemy, enemyLayerMask);
+        Debug.DrawRay(transform.position, directionToMouse);
     }
 }
