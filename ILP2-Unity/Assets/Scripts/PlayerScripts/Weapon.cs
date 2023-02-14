@@ -39,7 +39,7 @@ public class Weapon : MonoBehaviour
         Vector2 mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 directionToMouse = (new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0) - transform.position).normalized;
 
-        Physics2D.Raycast(transform.position, directionToMouse, maxDistanceToEnemy, layerMask);
+       // Physics2D.Raycast(transform.position, directionToMouse, maxDistanceToEnemy, layerMask);
         //Vector3.MoveTowards(transform.position, )
     }
 }
