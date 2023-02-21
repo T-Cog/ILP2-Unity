@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamOperator : MonoBehaviour
 {
-    public Transform playerTracker;
+    public Transform player;
     public float updateSpeed;
     public Vector2 trackingOffset;
     private Vector3 offset;
@@ -12,12 +12,12 @@ public class CamOperator : MonoBehaviour
     void Start()
     {
         offset = (Vector3)trackingOffset;
-        offset.z = transform.position.z - playerTracker.position.z;
+        offset.z = transform.position.z - player.position.z;
     }
 
    
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, playerTracker.position + offset, updateSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.position + offset, updateSpeed * Time.deltaTime);
     }
 }
