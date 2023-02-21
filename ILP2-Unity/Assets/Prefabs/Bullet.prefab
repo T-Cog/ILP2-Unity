@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1761159674334377067}
   - component: {fileID: -6281405585470987753}
   - component: {fileID: -640636645303521282}
-  - component: {fileID: 6943623761803299621}
+  - component: {fileID: 5815121987418887351}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.74396646, g: 0.49123356, b: 0.7830189, a: 1}
+  m_Color: {r: 0.8679245, g: 0.2251691, b: 0.26661786, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 1.9999999}
   m_Direction: 0
---- !u!114 &6943623761803299621
+--- !u!114 &5815121987418887351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,13 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5254318480188259847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00fb53f5e51020f419778d72ef35c9b7, type: 3}
+  m_Script: {fileID: 11500000, guid: f77c7ec0deae960498c02c3b22d1be2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3563190587915510100, guid: 61eb805da33ffac4a9348d6c24141f03, type: 3}
-  force: 5
-  maxDistanceToEnemy: 1000
-  speed: 0
-  layersToHit:
-    serializedVersion: 2
-    m_Bits: 128

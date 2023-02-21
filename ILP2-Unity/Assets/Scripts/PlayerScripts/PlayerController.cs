@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Instantiate(weapon, transform.position, Quaternion.identity);
+            //Instantiate(weapon, transform.position, Quaternion.identity);
         }
 
     }
