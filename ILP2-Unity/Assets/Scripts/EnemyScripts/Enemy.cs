@@ -3,32 +3,38 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform player;
+    private GameObject player;
+    private Transform playerPosition;
 
     private Rigidbody2D body;
 
     private Vector2 movement;
-    private Vector3 direction;
+    private Vector3 playerDirection;
     public float speed = 5f;
-
-    // Start is called before the first frame update
-    void Start()
+ 
+    void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        playerPosition = player.transform;
+    }
+
+
     void Update()
     {
         //Sets the direction between the player and enemy position
-        direction = player.position - transform.position;
+        playerDirection = playerPosition.position - transform.position;
         //Calculates the angle for enemy rotation
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
 
         //Rotates the enemy to face towards the player
         body.rotation = angle;
-        direction.Normalize();
-        movement = direction;
+        playerDirection.Normalize();
+        movement = playerDirection;  
     }
 
     private void FixedUpdate()
@@ -41,14 +47,30 @@ public class Enemy : MonoBehaviour
         body.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        bool killPlayer = true;
+        float playerCheck = 1f;
+
+        int playerMask = LayerMask.GetMask("Player");
+        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, playerDirection, playerCheck, playerMask);
+
+        Debug.DrawRay(transform.position, playerDirection, Color.green);
+
+        if (hitPlayer)
+        {
+            player.SendMessage("PlayerDead", killPlayer);
+        }
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        int playerMask = LayerMask.GetMask("Player");
-        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, (Vector2) direction) 
+        int bulletMask = LayerMask.GetMask("Bullet");
 
-        if (playerMask)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
-
+            Destroy(gameObject);
         }
     }
 }

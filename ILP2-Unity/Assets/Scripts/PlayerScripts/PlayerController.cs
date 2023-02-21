@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public GameObject weapon;
 
     void Update()
     {
@@ -25,11 +24,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             transform.position = Vector3.MoveTowards(transform.position, mousePositionInWorld, speed * Time.deltaTime);
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            //Instantiate(weapon, transform.position, Quaternion.identity);
         }
 
     }
