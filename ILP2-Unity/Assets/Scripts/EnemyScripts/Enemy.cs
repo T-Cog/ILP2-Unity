@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //public GameObject scoreReceiver;
     private GameObject player;
     private Transform playerPosition;
 
@@ -54,6 +55,9 @@ public class Enemy : MonoBehaviour
         // Checks if the enemy is hit by a bullet and then destroys itself if it is
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
+            bool addScore = true;
+
+            player.SendMessage("AddScore", addScore);
             Destroy(gameObject);
         }
 
