@@ -28046,11 +28046,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040285314846855530, guid: 00b3b0bc26f397f4c8516410c682ec9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.73
+      value: -13.93
       objectReference: {fileID: 0}
     - target: {fileID: 4040285314846855530, guid: 00b3b0bc26f397f4c8516410c682ec9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 4040285314846855530, guid: 00b3b0bc26f397f4c8516410c682ec9c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30939,7 +30939,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2828020909536220942, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.85
+      value: 0.263
       objectReference: {fileID: 0}
     - target: {fileID: 3502976900639987721, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: firePoint
@@ -30983,7 +30983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[2].value
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[0].inSlope
@@ -30995,7 +30995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[2].inSlope
-      value: 1.4270664
+      value: 2.6435513
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[0].outSlope
@@ -31015,7 +31015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[2].outSlope
-      value: 1.4270664
+      value: 2.6435513
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008074, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: movementCurve.m_Curve.Array.data[0].outWeight
@@ -31087,7 +31087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002251650541008085, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e92bed7b3f2fb4db78dae07f99c8e6, type: 3}
