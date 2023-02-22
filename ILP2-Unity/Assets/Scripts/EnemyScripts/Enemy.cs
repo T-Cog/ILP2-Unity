@@ -39,36 +39,40 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Passes the movement variable to define the direction the enemy moves
         moveEnemy(movement);
     }
 
+    //Moves the enemy towards the players position
     void moveEnemy(Vector2 direction)
     {
         body.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        bool killPlayer = true;
-        float playerCheck = 1f;
-
-        int playerMask = LayerMask.GetMask("Player");
-        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, playerDirection, playerCheck, playerMask);
-
-        Debug.DrawRay(transform.position, playerDirection, Color.green);
-
-        if (hitPlayer)
-        {
-            player.SendMessage("PlayerDead", killPlayer);
-        }
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Checks if the enemy is hit by a bullet and then destroys itself if it is
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             Destroy(gameObject);
+        }
+
+        // Checks if the enemy collides with the player
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            bool killPlayer = true;
+            float playerCheck = 1f;
+
+            // Checks if the player is directly in front of the enemy with a short raycast
+            int playerMask = LayerMask.GetMask("Player");
+            RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, playerDirection, playerCheck, playerMask);
+
+            // If the player is in front of the enemy when they make contact,
+            // sends a message to the KillPlayer script to trigger game over
+            if (hitPlayer)
+            {
+                player.SendMessage("PlayerDead", killPlayer);
+            }
         }
     }
 }

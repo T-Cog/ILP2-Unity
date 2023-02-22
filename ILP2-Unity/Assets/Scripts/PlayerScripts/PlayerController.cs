@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AnimationCurve movementCurve;    
+    
     public float speed;
+    private float time;
 
     void Update()
     {
@@ -11,8 +14,6 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Gets the direction to the mouse from the player
         Vector3 directionToMouse = (new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0) - transform.position).normalized;
-
-        Debug.DrawLine(transform.position, transform.position + directionToMouse, Color.red);
 
         // Calculates the angle of the direction vector
         float angleInRadians = Mathf.Atan2(directionToMouse.y, directionToMouse.x);
@@ -22,10 +23,23 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, angleInDegrees);
 
 
+        
         if (Input.GetMouseButton(0))
         {
+            // Adds time while left click is pressed and matches the speed to the value of the animation curve
+            time += Time.deltaTime;
+            speed = movementCurve.Evaluate(time);
+
+            // Moves the player to the direction of the mouse the rate of the speed variable
             transform.position = Vector3.MoveTowards(transform.position, mousePositionInWorld, speed * Time.deltaTime);
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            // Resets the time variable to 0 when left click is released
+            time = 0;
+        }
     }
+
+
 }

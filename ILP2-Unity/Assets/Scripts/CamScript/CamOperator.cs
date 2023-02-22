@@ -11,6 +11,7 @@ public class CamOperator : MonoBehaviour
 
     void Start()
     {
+        // Offsets the camera to avoid clipping
         offset = (Vector3)trackingOffset;
         offset.z = transform.position.z - player.position.z;
     }
@@ -18,6 +19,8 @@ public class CamOperator : MonoBehaviour
    
     void LateUpdate()
     {
+        // Moves the camera to the player position using lerp
+        // Uses Lerp to create a sense of movement with the camera
         transform.position = Vector3.Lerp(transform.position, player.position + offset, updateSpeed * Time.deltaTime);
     }
 }

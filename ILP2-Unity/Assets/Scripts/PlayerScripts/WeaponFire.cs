@@ -15,6 +15,7 @@ public class WeaponFire : MonoBehaviour
 
     public void Fire()
     {
+        // Fires a bullet on right click in the direction that the player is facing
         if (Input.GetMouseButtonDown(1))
         {
             GameObject shootBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
